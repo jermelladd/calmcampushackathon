@@ -1,0 +1,506 @@
+.mcontain {
+    max-width: 2000px;
+    height: 96vh;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+.main-container {
+    /* */
+    font-weight: inherit;
+}
+
+/* Set the chatbox to the lower 20% of the screen */
+    .chat-container {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        height: 22vh; /* Increased height to 22vh to add space */
+        background-color: #f8f9fa;
+        border-top: 1px solid #ddd;
+        padding: 10px;
+        padding-bottom: 25px; /* Added padding at the bottom */
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+.chat-box {
+        height: 70%;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    /* Add transition for smooth effect */
+    .chat-container {
+        transition: height 0.3s ease;
+    }
+
+    /* Class for expanding the container on mobile */
+    .expanded-mobile {
+        height: 100vh !important; /* Full height for mobile */
+    }
+
+    /* Class for expanding the container on desktop */
+    .expanded-desktop {
+        height: 50vh !important; /* Half height for desktop */
+    }
+
+    /* Adjust the height of the chatbox for mobile (at least 90%) */
+    .mobile-chat-height {
+        height: 90%; /* Chatbox takes 90% of the container height on mobile */
+        overflow-y: auto;
+    }
+
+    /* Adjust the height of the chatbox for desktop */
+    .desktop-chat-height {
+        height: 40vh; /* Adjusted height of chatbox for desktop */
+        overflow-y: auto;
+    }
+
+    /* Chatbox style remains scrollable when more content appears */
+    .chat-box {
+        height: 70%; /* Initial chatbox height */
+        max-height: 70%; /* Limit the chatbox height initially */
+        overflow-y: auto;
+    }
+
+
+
+    /* Placeholder for the display container */
+    #displayContainer {
+        padding: 20px;
+        height: 80vh; /* Top 80% of the page */
+        background-color: #f1f1f1;
+        overflow-y: auto;
+    }
+
+    /* Skinny header styling */
+    .app-header {
+        width: 100%;
+        height: 40px; /* Adjust the height as needed */
+        background-color: #007bff; /* Blue background (Bootstrap primary color) */
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 0px; /* Space between header and content */
+    }
+
+    .app-title {
+        font-size: 16px; /* Adjust font size for a small header */
+        margin: 0;
+        font-weight: bold; /* Use bold Lato */
+    }
+
+    /* Chat input and button styling */
+    .chat-input-group {
+        border-radius: 25px;
+        background-color: #f1f1f1;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chat-input {
+        border: none;
+        border-radius: 25px;
+        padding-left: 15px;
+        background-color: transparent;
+        box-shadow: none;
+        flex-grow: 1;
+        font-size: 14px;
+    }
+
+    .chat-input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .btn-send {
+        background-color: #f1f1f1;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-left: 10px;
+    }
+
+    .btn-send i {
+        font-size: 18px;
+        color: #555;
+    }
+
+    .btn-send:hover {
+        background-color: #e0e0e0;
+        cursor: pointer;
+    }
+
+    #sendButton i {font-size: 24px;}
+
+    /* Chat messages */
+    .user-message, .bot-message {
+        display: block;
+        padding: 5px 10px;
+        margin-bottom: 0px;
+        max-width: 75%;
+        border-radius: 20px;
+        word-wrap: break-word;
+        justify-content: flex-start; /* Align both to the left */
+    }
+
+    .user-message p, .bot-message p {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 20px;
+        margin: 0;
+        text-align: left;
+    }
+
+    /* Specific user message styling */
+    .user-message p {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .bot-message {
+        justify-content: flex-start;
+    }
+
+    .bot-message p {
+        background-color: #f1f1f1;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 20px;
+        margin: 0;
+        text-align: left;
+    }
+
+    /* Fade overlay */
+    .fade-overlay {
+        position: fixed;
+        bottom: 12vh; /* Updated to 10vh */
+        left: 0;
+        width: 100%;
+        height: 100px; /* Updated to 100px */
+        background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 5%,
+            rgba(255, 255, 255, 0.15) 7%,
+            rgba(255, 255, 255, 0.25) 10%,
+            rgba(255, 255, 255, 0.35) 12%,
+            rgba(255, 255, 255, 0.45) 15%,
+            rgba(255, 255, 255, 0.6) 20%,
+            rgba(255, 255, 255, 0.65) 24%,
+            rgba(255, 255, 255, 0.75) 30%,
+            rgba(255, 255, 255, 0.85) 40%,
+            rgba(255, 255, 255, 0.9) 50%,
+            rgba(255, 255, 255, 0.95) 70%,
+            rgba(255, 255, 255, 1) 100%
+        );
+        pointer-events: none;
+        z-index: 99999; /* Ensures the overlay is on top */
+    }
+
+
+
+
+.instructions { margin-top: 20px; }
+
+.typing-indicator {
+    display: none;
+    margin: 5px 0;
+    width: 70px;
+    text-align: center;
+}
+
+.typing-indicator > div {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    background-color: #007bff;
+    border-radius: 50%;
+    animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator .bounce1 {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator .bounce2 {
+    animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    } 40% {
+        transform: scale(1);
+    }
+}
+
+.bot-message a.small-message {
+    font-size: 0.8em;
+    color: #007BFF;
+    text-decoration: underline;
+    display: block;
+    margin-top: 5px;
+}
+
+
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        height: 75vh; /* Chat takes up 75% of the screen height */
+    }
+
+    .chat-container {
+        width: 100%;
+        height: 75%; /* Chat container takes up 75% of the screen height */
+        margin-bottom: 10px;
+    }
+
+    .suggestions-container {
+        width: 100%;
+        height: 25%; /* Suggestions container takes up the remaining 25% */
+    }
+}
+
+/* Suggestions container (scrollable if needed) */
+.suggestions-container {
+margin-top: 5px;
+max-height: 15vh; /* Adjust height to show more questions (can be changed) */
+overflow-y: auto; /* Enable vertical scrolling for hidden questions */
+padding-right: 10px; /* Prevent right-side cutoff due to scrollbar */
+}
+
+/* Modern button-like styling for each question */
+.question {
+display: inline-block;
+background-color: #f9f9f9; /* Light grey background */
+color: #333; /* Dark grey text */
+padding: 10px 15px;
+margin: 5px 5px 0px; /* Margin between questions */
+border: 1px solid #ddd; /* Thin, light border */
+border-radius: 5px; /* Rounded corners for modern look */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
+cursor: pointer; /* Pointer cursor to indicate clickability */
+font-size: 14px;
+transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+white-space: nowrap; /* Prevent line breaks */
+overflow: hidden;
+text-overflow: ellipsis; /* Ellipsis for long questions */
+cursor: pointer;
+}
+
+/* Hover effect for modern look */
+.question:hover {
+background-color: #e6e6e6; /* Slightly darker grey on hover */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+/* Responsive inline display */
+#questionsContainer {
+display: flex;
+flex-wrap: wrap; /* Allow questions to wrap on smaller screens */
+gap: 10px; /* Gap between question elements */
+justify-content: flex-start; /* Align questions to the left */
+}
+.app-header.dark-red {
+    background-color: #e80d0d; /* Dark red when the toggle is on */
+    border-bottom: 1px solid #f00;
+}
+
+
+
+/* Custom styling for the section */
+.webcontent-section {
+    display: flex;
+    flex-direction: row;
+    min-height: 50vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+
+  /* For mobile devices, make the section take 100% of the height */
+  @media (max-width: 767px) {
+    .webcontent-section {
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  }
+
+  .webcontent-image {
+    flex: 1;
+    background-image: url('../imgs/springfield-mascot.jpeg');
+    background-size: contain; /* Makes sure the whole image fits within the element */
+    background-position: top center; /* Centers the image horizontally and vertically */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: local; /* Ensures the image stays within the element without scrolling */
+}
+
+
+  .webcontent-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .webcontent-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .webcontent-text p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .webcontent-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  .webcontent-text ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Custom arrow with SVG for previous (white with black border) */
+.carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"%3E%3Cpath d="M4.5 0L0 4l4.5 4V6l-2-2 2-2V0z" fill="white" stroke="black" stroke-width="0.5"%3E%3C/path%3E%3C/svg%3E');
+  background-size: 100%;
+  background-color: transparent; /* Ensure the background is transparent */
+}
+
+/* Custom arrow with SVG for next (white with black border) */
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"%3E%3Cpath d="M3.5 0L8 4 3.5 8V6l2-2-2-2V0z" fill="white" stroke="black" stroke-width="0.5"%3E%3C/path%3E%3C/svg%3E');
+  background-size: 100%;
+  background-color: transparent;
+}
+
+
+
+
+#displayContainer {
+    padding: 20px;
+    margin: 10px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* display: none; */
+}
+
+
+.spinner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-image {
+    width: 50px;
+}
+
+
+.app-header {
+    width: 100%;
+    height: 40px;
+    /* Adjust the height as needed */
+    background-color: #007bff;
+    /* Blue background (Bootstrap primary color) */
+    color: white;
+    display: flex;
+    align-items: center;
+    /* Vertically center all items */
+    justify-content: space-between;
+    /* Space between nav links, title, and toggle */
+    font-family: "Lato", sans-serif;
+    margin-bottom: 0px;
+    /* Space between header and content */
+    padding: 0 10px;
+    /* Add some padding for spacing */
+    position: fixed;
+    /* Make it relative to position the title */
+    transition: background-color 0.5s ease;
+    /* Smooth transition for background color */
+    z-index: 99999;
+    top: 0;
+}
+
+.app-header.dark-red {
+    background-color: #ff8d8d;
+    /* Dark red when the toggle is on */
+    border-bottom: 1px solid #f00;
+}
+
+.app-title {
+    font-size: 16px;
+    /* Adjust font size for a small header */
+    margin: 0;
+    font-weight: bold;
+    /* Use bold Lato */
+    position: absolute;
+    /* Absolute positioning to keep it centered */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    /* Ensure title text is centered */
+}
+
+#nav-area {
+    display: flex;
+    /* Flex to keep links aligned */
+    align-items: center;
+    /* Vertically center navigation links */
+}
+
+#nav-area a {
+    margin-right: 10px;
+    color: white;
+    /* Ensure links are white */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+#nav-area a:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+
+.ui-dialog {
+    position: fixed; /* Fixed position for centering */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of its own width and height */
+    max-width: 600px; /* Maximum width for desktop */
+    width: 90%; /* Default width on smaller screens */
+}
+.ui-dialog-titlebar-close {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+}
+.ui-dialog-titlebar-close i {
+    font-size: 1.5em; /* Adjust icon size */
+    color: #000; /* Change icon color if needed */
+}

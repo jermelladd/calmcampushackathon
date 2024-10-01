@@ -1,0 +1,623 @@
+  /* Global styles */
+  body {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+  }
+
+  /* Skinny header styling */
+  /* Skinny header styling */
+  .app-header {
+      width: 100%;
+      height: 40px;
+      /* Adjust the height as needed */
+      background-color: #007bff;
+      /* Blue background (Bootstrap primary color) */
+      color: white;
+      display: flex;
+      align-items: center;
+      /* Vertically center all items */
+      justify-content: space-between;
+      /* Space between nav links, title, and toggle */
+      font-family: "Lato", sans-serif;
+      margin-bottom: 0px;
+      /* Space between header and content */
+      padding: 0 10px;
+      /* Add some padding for spacing */
+      position: fixed;
+      /* Make it relative to position the title */
+      transition: background-color 0.5s ease;
+      /* Smooth transition for background color */
+      z-index: 99999;
+      top: 0;
+  }
+
+  .app-header.dark-red {
+      background-color: #ff8d8d;
+      /* Dark red when the toggle is on */
+      border-bottom: 1px solid #f00;
+  }
+
+  .app-title {
+      font-size: 16px;
+      /* Adjust font size for a small header */
+      margin: 0;
+      font-weight: bold;
+      /* Use bold Lato */
+      position: absolute;
+      /* Absolute positioning to keep it centered */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      /* Ensure title text is centered */
+  }
+
+  #nav-area {
+      display: flex;
+      /* Flex to keep links aligned */
+      align-items: center;
+      /* Vertically center navigation links */
+  }
+
+  #nav-area a {
+      margin-right: 10px;
+      color: white;
+      /* Ensure links are white */
+      text-decoration: none;
+      /* Remove underline */
+  }
+
+  #nav-area a:hover {
+      text-decoration: underline;
+      /* Add underline on hover */
+  }
+
+  /* Right-side toggle container */
+  .toggle-container {
+      display: flex;
+      align-items: center;
+  }
+
+  .toggle-container label {
+      margin-right: 10px;
+      color: white;
+      /* Make sure the label is white */
+      cursor: pointer;
+  }
+
+  /* Make the cursor a pointer on hover for the toggle switch */
+  .custom-control-input {
+      cursor: pointer;
+  }
+
+  /* Change the background of the toggle when it's turned on */
+  .custom-control-input:checked~.custom-control-label::before {
+      background-color: red;
+      border-color: red;
+  }
+
+  /* Optional: If you want to change the knob (circle) color too when active */
+  .custom-control-input:checked~.custom-control-label::after {
+      background-color: white;
+      /* Keep the knob white */
+      transform: translateX(1.5rem);
+      /* Move it to the right when checked */
+  }
+
+
+
+
+
+
+  .mcontain {
+      max-width: 2000px;
+
+  }
+
+  .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 50vh;
+      /* Sets the height to half of the screen */
+
+  }
+
+  .chat-container {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 64%;
+      /* Adjust the width to take up half of the container */
+      height: 100%;
+      /* Fill the height */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+  .chat-box {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      overflow-y: auto;
+      /* Ensures the chat box is scrollable */
+      flex-grow: 1;
+      /* Allows the chat box to grow and fill space */
+  }
+
+  .user-message {
+      text-align: left;
+      float: right;
+  }
+
+  .user-message p {
+      background: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+      display: inline-block;
+  }
+
+  .bot-message {
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 20px;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .bot-message p {
+      display: inline-block;
+      margin: 0;
+      /* Reduce excessive margin */
+      padding: 5px 0;
+  }
+
+  .bot-message pre.json-code {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      margin: 5px 0;
+      /* Minimal margin for consistency */
+  }
+
+  #sendButton {
+      background-color: #000;
+      color: #fff;
+  }
+
+  #userInput {
+      margin-top: 10px;
+      overflow: hidden;
+      /* Prevent horizontal scrolling */
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      /* Ensures padding is included in the width */
+      height: 2.5em;
+  }
+
+  .instructions {
+      margin-top: 20px;
+  }
+
+  .typing-indicator {
+      display: none;
+      margin: 5px 0;
+      width: 70px;
+      text-align: center;
+  }
+
+  .typing-indicator>div {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 3px;
+      background-color: #007bff;
+      border-radius: 50%;
+      animation: typingBounce 1.4s infinite ease-in-out both;
+  }
+
+  .typing-indicator .bounce1 {
+      animation-delay: -0.32s;
+  }
+
+  .typing-indicator .bounce2 {
+      animation-delay: -0.16s;
+  }
+
+  @keyframes typingBounce {
+
+      0%,
+      80%,
+      100% {
+          transform: scale(0);
+      }
+
+      40% {
+          transform: scale(1);
+      }
+  }
+
+  .bot-message a.small-message {
+      font-size: 0.8em;
+      color: #007BFF;
+      text-decoration: underline;
+      display: block;
+      margin-top: 5px;
+  }
+
+  .suggestions-container {
+      width: 35%;
+      /* Adjust the width to take up half of the container */
+      height: 100%;
+      /* Fill the height */
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      /* Allows the suggestions to scroll if they overflow */
+  }
+
+  .question {
+      padding: 10px;
+      margin: 10px 5px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 5px;
+      max-height: 100px;
+      overflow: scroll;
+  }
+
+  .question.inactive-item {
+      background-color: #ccc;
+  }
+
+
+  .question:hover {
+      background-color: #e0e0e0;
+  }
+
+  @media (max-width: 768px) {
+      .main-container {
+          flex-direction: column;
+          height: 75vh;
+          /* Chat takes up 75% of the screen height */
+      }
+
+      .chat-container {
+          width: 100%;
+          height: 75%;
+          /* Chat container takes up 75% of the screen height */
+          margin-bottom: 10px;
+      }
+
+      .suggestions-container {
+          width: 100%;
+          height: 25%;
+          /* Suggestions container takes up the remaining 25% */
+      }
+  }
+
+
+
+  .sbutton {
+      display: inline-block;
+      width: 200px
+  }
+
+  .addqbut {
+      display: block;
+      margin-top: 15px;
+      font-size: 10px;
+  }
+
+  #questionsContainer .question {
+      background-color: #fff;
+      overflow: visible;
+      max-height: none;
+      border: 1px solid #e7e3e3;
+  }
+
+  #questionsContainer .question .btn.btn-light {
+      background-color: #ffffff;
+      color: #0c7308;
+      border: 1px solid #000;
+  }
+
+  #questionsContainer .question .btn.btn-light.qa-success-button {
+      background-color: #d0fedc;
+      color: #0a6a06;
+      border: 1px solid #001202;
+  }
+
+
+
+
+
+
+
+  #displayContainer {
+      padding: 20px;
+      margin: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      /* display: none; */
+  }
+
+
+  /* Customize the tooltip box */
+  .tooltip {
+
+      color: #fff;
+      /* Change text color */
+      border-radius: 5px;
+      /* Rounded corners */
+      padding: 10px;
+      /* Increase padding */
+      font-size: 14px;
+      /* Adjust font size */
+      max-width: 250px;
+      /* Set maximum width */
+  }
+
+  /* Customize the tooltip arrow */
+  .tooltip .arrow::before {
+      border-top-color: #333;
+      /* Match tooltip background */
+  }
+
+  /* Optionally style the tooltip title */
+  .tooltip-inner {
+      background-color: #000;
+      /* Different background for inner content */
+      color: #fff;
+      /* Text color */
+      font-weight: 100;
+      font-size: 12px;
+
+  }
+
+
+
+  .spinner-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .spinner-image {
+      width: 50px;
+  }
+
+
+
+
+
+
+
+
+
+  .section-div {
+      margin-bottom: 40px;
+  }
+
+  .section-div div.left-sec {
+      height: 600px;
+  }
+
+  .sec {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      height: 600px;
+
+  }
+
+  .sec-right {
+      font-size: 12px;
+      ;
+  }
+
+  .section-div .question {
+      display: flex;
+      align-items: flex-start;
+      /* Align items to the top */
+      padding: 10px;
+      margin: 10px 5px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 5px;
+      overflow: hidden;
+  }
+
+  .section-div .question.inactive-item {
+      background-color: #ccc;
+  }
+
+  .inactive-item.question {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px;
+      margin: 10px 5px;
+      background-color: #4b4b4b;
+      /* Adjusted background color */
+      border-radius: 5px;
+      position: relative;
+      /* Important for overlaying the lines */
+      overflow: hidden;
+  }
+
+  .inactive-item.question::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: repeating-linear-gradient(45deg,
+              /* Angle for diagonal lines */
+              rgba(255, 255, 255, 0.1) 0px,
+              /* Light transparent white for lines */
+              rgba(255, 255, 255, 0.1) 10px,
+              transparent 10px,
+              transparent 20px);
+      pointer-events: none;
+      /* Allows clicks to pass through */
+  }
+
+  .section-div .question-number {
+      background-color: #004c70;
+      /* Adjust color to match your design */
+      color: white;
+      padding: 10px;
+      border-radius: 5px 0 0 5px;
+      /* Rounded corners on the left */
+      margin-right: 10px;
+      text-align: center;
+      font-weight: bold;
+      min-width: 30px;
+      flex-shrink: 0;
+      /* Prevent the number box from shrinking */
+  }
+
+  .section-div .question-text {
+      flex-grow: 1;
+      max-height: 100px;
+      /* Set maximum height */
+      overflow-y: auto;
+      /* Enable vertical scrolling when content exceeds max height */
+      overflow-wrap: break-word;
+      /* Ensure long words break correctly */
+      padding-bottom: 20px;
+      ;
+  }
+
+  .button-row {
+      margin-top: 20px;
+      display: block;
+  }
+
+  .section-edit-btn {
+      margin-top: auto;
+  }
+
+  .stats-x {
+      margin-bottom: 10px;
+  }
+
+  .section-div .question {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px;
+      margin: 10px 5px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      /* Allows absolute positioning inside this element */
+  }
+
+  .section-div .question.promoted {
+      border: 1px solid #d1a20b;
+  }
+
+  .promoted-flag {
+      position: absolute;
+      top: 40%;
+      right: 10px;
+      /* Aligns the flag to the right */
+      background-color: #014c70;
+      color: #fff;
+      font-weight: bold;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+  }
+
+  .promoted-flag i {
+      margin-right: 0px;
+  }
+
+
+
+
+
+
+
+
+
+
+  #prompt-sec.sec {
+      height: auto;
+  }
+
+  #prompt-sec.sec h3 {
+      margin-bottom: 30px;
+  }
+
+  #prompt-sec.sec p.instructions {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+  }
+
+  #prompt-sec.sec .btn {
+      margin-top: 10px;
+      ;
+  }
+
+  #prompt-sec.sec textarea.prompt-edit {
+      min-height: 320px;
+      /* Roughly equivalent to 5 rows */
+  }
+
+  #prompt-sec.sec p.instructions-for-small {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+      font-style: italic;
+  }
+
+  #prompt-sec.sec p.prompt-text {
+      font-size: 14px;
+      color: #014982;
+  }
+
+
+  .ui-dialog {
+    position: fixed; /* Fixed position for centering */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of its own width and height */
+    max-width: 600px; /* Maximum width for desktop */
+    width: 90%; /* Default width on smaller screens */
+}
+.ui-dialog-titlebar-close {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove padding */
+}
+.ui-dialog-titlebar-close i {
+    font-size: 1.5em; /* Adjust icon size */
+    color: #000; /* Change icon color if needed */
+}
